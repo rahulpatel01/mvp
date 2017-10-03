@@ -1,0 +1,50 @@
+
+<p>
+  <%= image_tag (@subject.avatar), size: "100x100" %>
+</p>
+
+<p>
+  <%= @subject.name %>
+</p>
+
+<p>
+  <%= @subject.objective %>
+</p>
+
+<p>
+  <%= @subject.lesson_plan %>
+</p>
+
+<p>
+  <%= @subject.content %>
+</p>
+<%#= link_to "give rating", subject_rating_path(@subject.id, @rating.id)%>
+
+<p>Averate rating</p>
+<div id="star"></div>
+<!-- <p>Your rating</p>
+<div id="user_star"></div> -->
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $('#star').raty({
+    readOnly: false,
+    score: <%= @subject.average_rating %>,
+    path: '/assets'
+  });
+  // $('#user_star').raty({
+  //   score: <%= @rating.score %>,
+  //   path: '/assets',
+  //   click: function(score, evt) {
+  //     debugger
+  //     $.ajax({
+  //       url: '/ratings/' + <%= @rating.id %>,
+  //       type: 'PATCH',
+  //       data: { score: score }
+  //     }).done(function (data){
+  //       debugger
+  //     });
+  //   }
+  // });
+});
+</script>

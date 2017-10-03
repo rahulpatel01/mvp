@@ -1,0 +1,18 @@
+$('#star').raty({
+  readOnly: true,
+  score: <%= @subject.average_rating %>,
+  path: '/assets'
+});
+debugger
+$('#user_star').raty({
+  score: <%= @rating.score %>,
+  path: '/assets',
+  click: function(score, evt) {
+    debugger
+    $.ajax({
+      url: '/ratings/' + <%= @rating.id %>,
+      type: 'PATCH',
+      data: { score: score }
+    }).done(function (data){});
+  }
+});

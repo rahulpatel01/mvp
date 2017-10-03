@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    attributes:
+      name: "имя"
+      objective: "задача"
+      lesson_plan: "план урока"
+      content: "содержание"
+  menu:
+    create_class: "список тем"
+    Listing Classes: "notering klasse"
+    courses: "kursusse"
+    languages:
+      lang: "Язык"
+      ru: "Русский"
+      en: "Английский"
+  helps:
+    failed_purchase: "Неудачные покупки курса"
+    # find_course: "Я не могу найти свой курс"
+    # message_to_instructor: "Отправить сообщение инструктору"
+    # video_playback: "Пpоблемы с воспpоизведением видео"

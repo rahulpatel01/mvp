@@ -1,0 +1,87 @@
+<header>
+    <div class="header-content table-inverse">
+        <div class="navbar-inner">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="container">
+                <div class="nav-collapse">
+                    <ul class="nav">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><h3 class="brand" href="#">Leer of leer</h3></li>&nbsp;&nbsp;&nbsp;
+                        <li class="list-inline-item"><%= link_to "huis" , root_path %></li>
+                        <% if signed_in? %>
+                            <li class="list-inline-item"><%= link_to "profiel", edit_user_registration_path %>
+                            <li class="list-inline-item"><%= link_to "teken uit", destroy_user_session_path, method: :delete %>
+                        <% else %>
+                            <li class="list-inline-item"><%= link_to "teken aan", new_user_session_path %></li>
+                            <li class="list-inline-item"><a href="#" data-toggle="modal" data-target="#myModal">teken aan</a></li>
+                        <% end %>
+                        <li class="list-inline-item dropdown ">
+                        <a href="/subjects" class="dropdown-toggle " data-toggle="dropdown">kursusse</b></a>
+                        <ul id="dropdown-menu" class="dropdown-menu">
+                            <li><a href="#">Dropdown 1</a></li>
+                            <li><a href="#">Dropdown 2</a></li>
+                            <li><a href="#">Dropdown 3</a></li>
+                            <li><a href="#">Dropdown 4</a></li>
+                            <li><a href="#">Dropdown 5</a></li>
+                          </ul></li>&nbsp;&nbsp;&nbsp;
+                        
+                        <li class="dropdown list-inline-item">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">kategorieë <b class="caret"></b></a>
+                          <ul id="dropdown-menu" class="dropdown-menu">
+                            <li><a href="#">Dropdown 1</a></li>
+                            <li><a href="#">Dropdown 2</a></li>
+                            <li><a href="#">Dropdown 3</a></li>
+                            <li class="divider"></li>
+                            <li class="nav-header">Nav header</li>
+                            <li><a href="#">Dropdown 4</a></li>
+                            <li><a href="#">Dropdown 5</a></li>
+                          </ul>
+                        </li>
+
+                        <li class="list-inline-item dropdown ">
+                        <a href="#" class="dropdown-toggle " data-toggle="dropdown">oor</b></a>
+                        <ul id="dropdown-menu" class="dropdown-menu">
+                            <li><a href="/about">About Page</a></li>
+                            <li><a href="#">Impact Page</a></li>
+                            <li><a href="#">Team Page</a></li>
+                            <li><a href="#">Partners</a></li>
+                            <li><a href="#">Volunteer</a></li>
+                            <% if signed_in? %>
+                            <li><a href="/donates/new">Donate</a></li>
+                            <% end %>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="/helps/new">Help</a></li>
+                          </ul></li>&nbsp;&nbsp;&nbsp;
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                              <%= t('menu.languages.lang') %>
+                              <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                              <li>
+                                <%= link_to t('menu.languages.english'), change_locale_path(:en) %>
+                              </li>
+                              <li>
+                                <%= link_to t('menu.languages.rushian'), change_locale_path(:ru) %>
+                              </li>
+                              <li>
+                                <%= link_to t('menu.languages.latin'), change_locale_path(:lt) %>
+                              </li>
+                              <li>
+                                <%= link_to t('menu.languages.french'), change_locale_path(:fr) %>
+                              </li>
+                            </ul>
+                          </li>
+                        </ul>
+                    </ul>
+                </div><!-- /.nav-collapse -->
+            </div><!--/.container-->
+        </div><!-- /navbar-inner -->
+    </div>
+</header><!--/header-->

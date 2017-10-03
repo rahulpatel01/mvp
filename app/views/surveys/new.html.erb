@@ -1,0 +1,53 @@
+<%= form_for @survey do |form| %>
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@survey.errors.count,"error") %> prohibited this survey from being saved:
+      </h2>
+      <ul>
+        <%= @survey.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p>
+    <%= form.label :category, "What category best describes your class*" %><br>
+    <%= form.select :category, [['Maths','maths'],['Reasoning','reasoning'],['Gk','gk']] %>
+    <%#= options_for_select([ "maths", "reasoning", "gk" ], "maths") %>
+  </p>
+  
+  <p>
+    <%= form.label :experience, "How much experience do you have*" %><br>
+    <%= form.select :experience, [[ '0','0'],[ '1','1'], ['2','2'], ['3','3'],[ '4','4'],[ '5','5'], ['6','6']] %>
+  </p>
+
+  <p>
+  <%= form.label :bubble_option, "Which of the following best describes your experience*" %><br>
+    <%= radio_button_tag(:bubble_option, "Strongest") %>
+    <%= form.label :bubble_option, "Strongest" %><br>
+    <%= radio_button_tag(:bubble_option, "normal") %>
+    <%= form.label :bubble_option, "normal" %>
+  </p>
+  
+  <p>
+    <%= form.label :media, "What media do you plan to use*" %><br>
+    <%= form.select :media, [[ "video","video"], ["ppt","ppt"], ["pdf","pdf"], ["all","all"]]%>
+  </p>
+
+  <p>
+    <%= form.label :skills, "Which best describes
+      the skills you have creating digital/electronic content*" %><br>
+    <%= form.select :skills, [[ "just video"],["ppt"], ["pdf"], ["none"]]%>
+  </p>
+
+  <p>
+    <%= form.label :reason, "why you have joined teach or learn" %><br>
+    <%= form.text_field :reason %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

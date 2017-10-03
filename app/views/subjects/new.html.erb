@@ -1,0 +1,58 @@
+<%= form_for @subject do |form| %>
+  <% if @subject.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@subject.errors.count,"error") %> prohibited this subject from being saved:
+      </h2>
+      <ul>
+        <%= @subject.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row equal">
+
+      <div class="col-xs-6 col-sm-3">
+        <p>
+          <%= form.label :name %><br>
+          <%= form.text_field :name %>
+        </p>
+        <p>
+          <%= form.label :objective %><br>
+          <%= form.text_field :objective %>
+        </p>
+        <p>
+          <%= form.label :lesson_plan %><br>
+          <%= form.text_area :lesson_plan %>
+        </p>
+        <p>
+          <%= form.label :content %><br>
+          <%= form.text_area :content %>
+        </p>
+      </div>
+
+      <div class="col-xs-6 col-sm-3">
+        <h4><b>add an image....</b></h4>
+        <%= form.file_field :avatar %>
+      </div>
+
+      <div class="col-xs-6 col-sm-3">
+      <h3>Helpful Tips:-</h3>
+      structure your thoughts 
+      shorten the time it takes to create your course by making a course by making a course outline
+      </div>
+
+  </div>  
+
+  <div class="form-group">
+    
+    <%#= image_tag "nature.jpg", id:"upload_pic", size: "200x150"%>
+  </div></br>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+

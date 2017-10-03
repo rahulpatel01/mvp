@@ -1,0 +1,40 @@
+<%= form_for @donate do |form| %>
+  <p>
+    <%= form.label :amount_type %><br>
+    <%= form.select :amount_type, Donate.amount_types.keys %>
+  </p>
+
+  <p>
+    <%= form.label :amount %><br>
+    <%= form.text_field :amount %>
+  </p>
+
+  <p>
+    <%= form.label :CreditCardType %><br>
+    <%= form.select :CreditCardType, Donate.CreditCardTypes.keys %>
+  </p>
+
+  <p>
+    <%= form.label :CreditCardNumber %><br>
+    <%= form.text_field :CreditCardNumber %>
+  </p>
+
+  <p>
+    <%= form.label :ExpMonth %><br>
+    <%= form.text_field :ExpMonth %>
+  </p>
+
+  <p>
+    <%= form.label :ExpYear %><br>
+    <%= form.text_field :ExpYear %>
+  </p>
+
+  <p>
+    <%= form.label :CVV %><br>
+    <%= form.text_field :CVV %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

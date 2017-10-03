@@ -1,0 +1,30 @@
+<% if @subject.present? %>
+  <table>
+      <tr>
+        <th style="padding:0 15px 0 15px;">image</th>
+        <th style="padding:0 15px 0 15px;">name</th>
+        <th style="padding:0 15px 0 15px;">objective</th>
+        <th style="padding:0 15px 0 15px;">lesson_plan</th>
+        <th style="padding:0 15px 0 15px;">content</th>
+        <!-- <th colspan="3"></th> -->
+      </tr>
+     
+      <% @subject.each do |subject| %>
+        <tr>
+          <td style="padding:0 15px 0 15px;"><%=link_to (image_tag subject.avatar, size: "100x100"), subject_path(subject) %></td>
+          <td style="padding:0 15px 0 15px;"><%= subject.name %></td>
+          <td style="padding:0 15px 0 15px;"><%= subject.objective %></td>
+          <td style="padding:0 15px 0 15px;"><%= subject.lesson_plan %></td>
+          <td style="padding:0 15px 0 15px;"><%= subject.content %></td>
+          
+          <td><%#= link_to 'Show', article_path(article) %></td>
+          <td><%#= link_to 'Edit', edit_article_path(article) %></td>
+          <td><%#= link_to 'Destroy', article_path(article),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+<% else %>
+  <h2> you don't have any created subject </h2>
+<% end %>

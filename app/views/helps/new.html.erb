@@ -1,0 +1,55 @@
+<%= form_for @help do |f| %>
+
+<div>
+  <%= image_tag ('/maxresdefault.jpg'), size: "1210x300" %>
+</div><br><br />
+
+<div>
+  <h2>Frequently Asked Questions</h2>
+  <%= link_to "unable to find my course", find_course_path %><br>
+  <%= link_to "send a message to the instructor", message_to_instructor_path %><br>
+  <%= link_to "video playback issue", video_playback_path %><br>
+  <%= link_to "failed course purchase", failed_purchase_path %><br>
+</div><br />
+
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <td class="table-active">student</td>
+      <td class="table-success">educator</td>
+    </tr>
+  </thead>
+</table>
+
+  <p>
+    <%= f.label :user_type, "I am a..." %><br> 
+    <%= f.select :user_type, Help.user_types.keys %>
+  <p>
+  <p>
+    <%= f.label :learn, "what are you looking to learn?" %><br>
+    <%= f.text_field :learn %>
+  </p>
+  <p>
+    <%= f.label :level_type, "what is your current skill level?" %><br>
+    <%= f.select :level_type, Help.level_types.keys %>
+  <p>
+  <p>
+    <%= f.label :goal, "what is your goal? Why are you learning this?" %><br>
+    <%= f.text_field :goal %>
+  </p>
+  <p>
+    <%= f.label :email, "your email address*" %><br>
+    <%= f.email_field :email %>
+  </p>
+  <p>
+    <%= f.label :description, "Description*" %><br>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :avatar, "Attachments" %><br>
+    <%= f.file_field :avatar %>
+  </p>
+  <p>
+  <%= f.submit %>
+  </p>
+<% end %>

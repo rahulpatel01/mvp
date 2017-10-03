@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mvp</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application'%>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <%= render :partial => 'layouts/header' %>
+    <% if notice || alert %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %> 
+    <%= yield %>
+    <%= render :partial => 'layouts/footer' %>
+
+    <div class="container">
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">     
+          <div class="modal-content">
+            <div class="modal-header" style="padding:15px 20px;">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Select your role</h4>
+            </div>
+            <p>
+            <div class="modal-body">  
+              <div>
+                <center><label> Innovate Learning and Learn to Innovate</label><br />
+                  <%= link_to "Begin as an Educator",new_user_registration_path( :role=>"educator" ) %><br />
+                  <%= link_to "Begin as a Learner",new_user_registration_path( :role=> "learner")%><br />
+                  <%= link_to "Begin as a Tutor/Teaching Assistant",new_user_registration_path( :role=> "tutor_assistant")%><br />
+                  <%= link_to "Begin as a Parent",new_user_registration_path( :role=> "parent")%>
+
+                </center>
+              </div><br />            
+            </p>
+          </div>
+              
+        </div>
+      </div> 
+    </div>
+  </body>
+</html>

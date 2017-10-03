@@ -1,0 +1,10 @@
+<div>
+  <%= image_tag('/gandhi1.jpg', size: "310x200") %>
+  <%= image_tag('/mark-twain.jpg', size: "320x200") %>
+  <%= image_tag('/nelson-mandelo.jpg', size: "320x200") %>
+  <%= image_tag('/malcolm.jpg', size: "320x200") %>
+</div><br />
+
+<% if signed_in? %>
+  <%= link_to "courses", subjects_path %>
+<% end %>
