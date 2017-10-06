@@ -65,4 +65,7 @@ gem 'rails-i18n', '~> 5.0.0'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'popper_js', '~> 1.11', '>= 1.11.1'
 gem 'paypal-sdk-merchant'
+gem 'dropzonejs-rails'
+gem "simple_calendar"

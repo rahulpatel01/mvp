@@ -18,20 +18,34 @@
           <%= form.label :name %><br>
           <%= form.text_field :name %>
         </p>
+        
         <p>
-          <%= form.label :objective %><br>
+          <%= form.label :objective, "Course Objective" %><br>
           <%= form.text_field :objective %>
         </p>
+        
         <p>
-          <%= form.label :lesson_plan %><br>
+          <%= form.label :lesson_plan , "Lesson Plan"%><br>
           <%= form.text_area :lesson_plan %>
         </p>
+        
         <p>
-          <%= form.label :content %><br>
+          <%= form.label :content, "Course Content" %><br>
           <%= form.text_area :content %>
+        </p>
+        
+        <p>
+          <%= form.label :homepage, "Course Homepage" %><br>
+          <%= form.text_field :homepage %>
         </p>
       </div>
 
+      <form action="/media-upload" class="dropzone">
+        <div class="fallback">
+          <input name="file" type="file" />
+        </div>
+      </form>
+      
       <div class="col-xs-6 col-sm-3">
         <h4><b>add an image....</b></h4>
         <%= form.file_field :avatar %>

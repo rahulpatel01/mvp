@@ -1,3 +1,8 @@
+<br><div class="wrapper">
+    <button class="button"><%= link_to "About Page", about_page_path(@subject) %></button>&nbsp;&nbsp;
+    <button ><%= link_to "assignment/tasks/topics", calendars_path %></button>
+</div>
+
 
 <p>
   <%= image_tag (@subject.avatar), size: "100x100" %>
@@ -18,12 +23,19 @@
 <p>
   <%= @subject.content %>
 </p>
+
+<p>
+  <%= @subject.homepage %>
+</p>
+
 <%#= link_to "give rating", subject_rating_path(@subject.id, @rating.id)%>
 
 <p>Averate rating</p>
 <div id="star"></div>
 <!-- <p>Your rating</p>
 <div id="user_star"></div> -->
+
+
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -48,3 +60,14 @@ $(document).ready(function(){
   // });
 });
 </script>
+
+<style type="text/css">
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    /*position: absolute;*/
+    /*top: 50%;*/
+}
+</style>

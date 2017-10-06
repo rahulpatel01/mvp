@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_one  :performance
   has_many :grades
   has_many :assignments
+  has_many :user_assignments
+  has_many :inverse_userassignments, :class_name => "User", :foreign_key => "educator_id"
   has_many :discussions
   has_many :donates
   has_many :ratings

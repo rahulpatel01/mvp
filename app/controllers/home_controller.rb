@@ -15,4 +15,17 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def all_educator
+    @educators = User.where(role: "educator")
+  end
+
+  def dashboard_page
+  end
+
+  def learner_dashboard
+  end
+
+  def educator_dashboard
+  end
 end

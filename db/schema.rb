@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170929114813) do
+ActiveRecord::Schema.define(version: 20171005140015) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
@@ -18,12 +18,21 @@ ActiveRecord::Schema.define(version: 20170929114813) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user"
+    t.datetime "start_time"
+    t.string   "avatar"
+    t.integer  "user_id"
     t.index ["user"], name: "index_assignments_on_user"
+    t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
   create_table "calendars", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "subject_id"
+    t.index ["subject_id"], name: "index_calendars_on_subject_id"
   end
 
   create_table "course_progresses", force: :cascade do |t|
@@ -131,6 +140,7 @@ ActiveRecord::Schema.define(version: 20170929114813) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.string   "avatar"
+    t.string   "homepage"
     t.index ["user_id"], name: "index_subjects_on_user_id"
   end
 
@@ -153,6 +163,19 @@ ActiveRecord::Schema.define(version: 20170929114813) do
     t.datetime "updated_at", null: false
     t.integer  "user"
     t.index ["user"], name: "index_tutor_assistants_on_user"
+  end
+
+  create_table "user_assignments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "educator_id"
+    t.integer  "assignment_id"
+    t.string   "description"
+    t.string   "avatar"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["assignment_id"], name: "index_user_assignments_on_assignment_id"
+    t.index ["educator_id"], name: "index_user_assignments_on_educator_id"
+    t.index ["user_id"], name: "index_user_assignments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

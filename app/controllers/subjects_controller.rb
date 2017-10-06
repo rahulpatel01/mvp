@@ -32,6 +32,10 @@ class SubjectsController < ApplicationController
     end
   end
 
+  def about_page
+    @subject = Subject.find(params[:id])
+  end
+
   def rate_update
     @rating = Rating.find(params[:id])
     @subject = @rating.subject
@@ -53,6 +57,6 @@ class SubjectsController < ApplicationController
   private
 
   def sub_params
-    params.require(:subject).permit(:name, :objective, :lesson_plan, :content, :avatar, :avatar_cache, :term)
+    params.require(:subject).permit(:name, :objective, :lesson_plan, :content, :homepage, :avatar, :avatar_cache, :term)
   end
 end

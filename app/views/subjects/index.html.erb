@@ -3,20 +3,14 @@
   <%#= link_to "create class", new_subject_path %>
   <%= link_to t('menu.create_class'), new_survey_path %>
   <%= link_to t('menu.courses'), educator_courses_path(current_user.id) %>
-<% end %>
+<% end %><br />
 
-<div class="text-center">
-  <%= form_tag(subjects_path, :method => "get") do %>
-    <%= text_field_tag :term, params[:term], placeholder: "What would you like to teach/learn today",:size=>"31x15" %>
-    <%= submit_tag "Search", name: nil %>
-  <% end %>
-</div>
   <table>   
     <% @subjects.each do |subject| %>
       <tr>
-        <%=link_to (image_tag subject.avatar, size: "200x200"), subject_path(subject) %><br>
-        <%= subject.name %><br>
-        Author Name:<%= current_user.first_name %><%= current_user.last_name %><br />
+        <%=link_to (image_tag subject.avatar, size: "200x200"), subject_path(subject) %><br />
+        Course Name: <%= subject.name %><br />
+        Author Name: <%= current_user.first_name %><%= current_user.last_name %><br /><br /><br />
         <td style="padding:0 15px 0 15px;"><%#= t(subject.objective) %></td>
         <td style="padding:0 15px 0 15px;"><%#= t(subject.lesson_plan) %></td>
         <td style="padding:0 15px 0 15px;"><%#= t(subject.content) %></td>
