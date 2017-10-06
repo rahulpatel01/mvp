@@ -1,0 +1,29 @@
+<%= form_for @assignment do |f| %>
+  <p>
+    <%= f.label :name, "content for assignment" %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <h5> Or</h5>
+  <div class="form-group">
+    <h4><b>upload an assignment</b></h4>
+    <%= f.file_field :avatar, class: 'form-control hide' %>
+  </div></br>
+
+  <p>
+    <%= f.label :start_time, "Assignment start date" %><br>
+    <%= f.date_field :start_time %>
+  </p>
+
+  <p>
+    <%= f.label :due_date %><br>
+    <%= f.date_field :due_date %>
+  </p>
+
+
+
+  <p>
+    <%= f.submit "create assignment" %>
+  </p>
+
+<% end %>

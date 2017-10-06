@@ -1,0 +1,9 @@
+<table>
+  <tr>
+  <% @user_assignments.each do |user_assignment| %>
+    <h5>Submitted To:-<%= user_assignment.educator.first_name %>&nbsp;<%= user_assignment.educator.last_name %></h5>
+    <h6>description of assignment:-</h6><p><%= user_assignment.description %></p>
+  </tr><br />
+    <button><%= link_to "downoad assignment", download_file_path(user_assignment) %></button>&nbsp;&nbsp;&nbsp;
+  <% end %>  
+</table>

@@ -1,0 +1,10 @@
+<%= month_calendar events: @calendars do |date, calendars| %>
+  <%= content_tag :div, class: "calendar-day", data: {date: Date.today} do %>
+    <%= date %>
+  <% end %>
+  <% calendars.each do |calendar| %>
+    <div>
+      <%=link_to calendar.name, calendar_path(calendar) %>
+    </div>
+  <% end %>
+<% end %>

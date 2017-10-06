@@ -1,0 +1,28 @@
+<% if can? :create, @assignment %>
+  <br></b><div class="myclass">
+  <button class="button"><%= link_to "Create Assignment", new_assignment_path %></button></div>
+<% else %>
+  <br><div class="myclass">
+    <button><%= link_to "Submitted assignments", assignment_user_assignments_path(@assignments) %></button><br>
+  </div>
+<% end %>
+<table>
+  <% @assignments.each do |assignment| %>
+    <tr>
+      <h5>Created by:-&nbsp;<%= assignment.user.first_name %>&nbsp;<%= assignment.user.last_name %></h5>
+      <h6>Instructions for assignment:-</h6><p><%= assignment.name %></p>
+      <h6>start date for assignment:</h6><%= assignment.start_time %>
+      <h6>due date for assignment:</h6><%= assignment.due_date %>
+    </tr><br />
+    <button><%= link_to "downoad assignment", download_file_path(assignment) %></button>&nbsp;&nbsp;&nbsp;  
+    <button><%= link_to "show and submit assignment", assignment_path(assignment) %></button><br /><br />
+  <% end %>
+</table>
+
+
+
+<style type="text/css">
+  .myclass{
+    text-align: center;
+  }
+</style>

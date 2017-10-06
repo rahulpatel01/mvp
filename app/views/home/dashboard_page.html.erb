@@ -1,0 +1,40 @@
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Join Class</a>
+  </li>
+  <% if can? :create, @subject %>
+    <li class="nav-item">
+      <a class="nav-link" href="/surveys/new">Create Class</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/educator_dashboard">Educator Tab</a>
+    </li>
+  <% else %>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Create Class</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" href="#">Educator Tab</a>
+    </li>
+  <% end %>
+  <li class="nav-item">
+    <a class="nav-link" href="/learner_dashboard">Learner Tab</a>
+  </li>
+  <li class="nav-item">
+    <%= link_to image_tag('/notification-circle.png', size: "40x40") %>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/home">Main Page</a>
+  </li>
+
+  <li class="nav-item">
+    <a href="/subjects" class="dropdown-toggle " data-toggle="dropdown">Menu</b></a>
+    <ul id="dropdown-menu" class="dropdown-menu">
+      <li><a href="/users/edit">Profile</a></li>
+      <li><a href="/helps/new">Help</a></li>
+      <li><a href="/surveys/new">Create Class</a></li>
+      <li><a href="#">Settings</a></li>
+      <li><a href="/subjects">Join Class</a></li>
+    </ul>
+  </li>
+</ul>

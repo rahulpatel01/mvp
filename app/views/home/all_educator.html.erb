@@ -1,0 +1,6 @@
+<p>
+  <% @educators.each do |educator| %>
+    <%= educator.first_name %>&nbsp;<%= educator.last_name %><br />
+    <%= educator.email %>
+  <% end %>
+</p>

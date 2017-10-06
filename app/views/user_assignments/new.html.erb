@@ -1,0 +1,17 @@
+<h4>you are submitting this assignment to:-</h4>
+<h5><%= @educator.first_name %>&nbsp;<%= @educator.last_name %></h5>
+<%= form_for ([@assignment, @assignment.user_assignments.build]) do |f| %> 
+  <br><p>
+    <%= f.label :description, "description of assignments" %>
+    <%= f.text_field :description %>
+  </p>
+
+  <p>
+    <b><h5>upload your assignment</h5></b>
+    <%= f.file_field :avatar %>
+  </p>
+
+  <p>
+    <%= f.submit "submit assignment" %>
+  </p>
+<% end %>

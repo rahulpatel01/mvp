@@ -1,0 +1,23 @@
+<p>
+  Instruction of Assignment<%= @assignment.name %><br>
+</p>
+
+<p>
+  <%= link_to "downoad assignment", download_file_path(@assignment) , :x_sendfile=>true %>
+</p>
+
+
+<p>
+  Assignment Start Date: <%= @assignment.start_time %><br>
+</p>
+
+<p>
+  Assignment Last Submition Date: <%= @assignment.due_date %><br>
+</p>
+
+<% if can? :create , @assignment %>
+<button><%#= link_to "submitted assignment", submitted_assignment_path %></button>
+<% else %>
+  <br></b><div class="myclass">
+  <button class="button"><%= link_to "submit assignment", new_assignment_user_assignment_path(@assignment) %></button></div>
+<% end %>
