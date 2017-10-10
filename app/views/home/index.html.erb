@@ -6,17 +6,28 @@
 </div><br />
 
 <% if signed_in? %>
-<ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active" href="/dashboard_page">Dashboard Page</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="/assignments">Assignment Page</a>
-  </li>
-  <% if current_user.role == "tutor_assistant" %>
-  <li class="nav-item">
-    <a class="nav-link" href="/all_educator">Tutor/Teaching Assignment Page</a>
-  </li>
-  <% end %> 
-</ul>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" href="/dashboard_page">Dashboard Page</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/assignments">Assignment Page</a>
+    </li>
+    <% if current_user.role == "tutor_assistant" %>
+    <li class="nav-item">
+      <a class="nav-link" href="/all_educator">Tutor/Teaching Assignment Page</a>
+    </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/questions/new">Post Question</a>
+        <%#= link_to "Post Question" , new_question_path%>
+      </li>
+    <% end %>
+    <% if current_user.role == "tutor_assistant" || current_user.role == "educator" %>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="/questions">Posted Questions</a>
+        <%#= link_to "Previous Posted Questions" , questions_path %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>

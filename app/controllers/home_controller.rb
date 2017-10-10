@@ -28,4 +28,8 @@ class HomeController < ApplicationController
 
   def educator_dashboard
   end
+
+  def user_profile
+    @user = User.find(params[:id])
+  end
 end

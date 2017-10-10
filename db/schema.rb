@@ -10,18 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171005140015) do
+ActiveRecord::Schema.define(version: 20171009134334) do
 
   create_table "assignments", force: :cascade do |t|
     t.string   "name"
     t.date     "due_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "user"
     t.datetime "start_time"
     t.string   "avatar"
     t.integer  "user_id"
-    t.index ["user"], name: "index_assignments_on_user"
     t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
@@ -33,6 +31,16 @@ ActiveRecord::Schema.define(version: 20171005140015) do
     t.datetime "updated_at", null: false
     t.integer  "subject_id"
     t.index ["subject_id"], name: "index_calendars_on_subject_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.text     "answer"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["question_id"], name: "index_comments_on_question_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "course_progresses", force: :cascade do |t|
@@ -116,9 +124,23 @@ ActiveRecord::Schema.define(version: 20171005140015) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.string   "event"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "performances", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "question"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_questions_on_user_id"
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -145,7 +167,7 @@ ActiveRecord::Schema.define(version: 20171005140015) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.integer  "subject_id"
+    t.integer  "user_id"
     t.string   "category"
     t.integer  "experience"
     t.string   "bubble_option"
@@ -154,7 +176,7 @@ ActiveRecord::Schema.define(version: 20171005140015) do
     t.string   "reason"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["subject_id"], name: "index_surveys_on_subject_id"
+    t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
   create_table "tutor_assistants", force: :cascade do |t|

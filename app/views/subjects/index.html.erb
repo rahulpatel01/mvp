@@ -1,19 +1,17 @@
-<h1><%= t('menu.Listing Classes') %></h1>
-<% if can? :create, @subject %>
-  <%#= link_to "create class", new_subject_path %>
-  <%= link_to t('menu.create_class'), new_survey_path %>
-  <%= link_to t('menu.courses'), educator_courses_path(current_user.id) %>
-<% end %><br />
+<div class="text-center">
+  <br><%= form_tag(subjects_path, :method => "get") do %>
+    <%= text_field_tag :term, params[:term], placeholder: "Search for course you want to learn",:size=>"31x15" %>
+    <%= submit_tag "Search", name: nil %>
+  <% end %><br /><br />
+</div>
 
-  <table>   
-    <% @subjects.each do |subject| %>
-      <tr>
+<div class="row">
+  <% @subjects.each do |subject| %>
+      <div class="col-md-3 col-sm-3 col-xs-12">
         <%=link_to (image_tag subject.avatar, size: "200x200"), subject_path(subject) %><br />
-        Course Name: <%= subject.name %><br />
-        Author Name: <%= current_user.first_name %><%= current_user.last_name %><br /><br /><br />
-        <td style="padding:0 15px 0 15px;"><%#= t(subject.objective) %></td>
-        <td style="padding:0 15px 0 15px;"><%#= t(subject.lesson_plan) %></td>
-        <td style="padding:0 15px 0 15px;"><%#= t(subject.content) %></td>
-      </tr>
-    <% end %>
-  </table>
+            Course Name: <%= subject.name %><br />
+            Author Name: <%= current_user.first_name %><%= current_user.last_name %><br /><br /><br />
+      </div>
+  <% end %> 
+</div>
+  

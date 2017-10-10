@@ -4,7 +4,7 @@ class SurveysController < ApplicationController
   end
 
   def create
-    @survey = Survey.new(survey_params)
+    @survey = current_user.surveys.build(survey_params)
     if @survey.save
       redirect_to educator_video_path
     else
@@ -19,6 +19,6 @@ class SurveysController < ApplicationController
   private
 
   def survey_params
-    params.require(:survey).permit(:category, :experience, :bubble_option, :media, :skills, :reason)
+    params.require(:survey).permit(:user_id, :category, :experience, :bubble_option, :media, :skills, :reason)
   end
 end

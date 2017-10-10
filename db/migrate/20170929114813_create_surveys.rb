@@ -1,7 +1,7 @@
 class CreateSurveys < ActiveRecord::Migration[5.0]
   def change
     create_table :surveys do |t|
-      t.references :subject, :index => true
+      t.references :user, :index => true
       t.string :category
       t.integer :experience
       t.string :bubble_option

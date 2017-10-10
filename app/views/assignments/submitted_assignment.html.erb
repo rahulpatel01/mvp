@@ -1,0 +1,11 @@
+<table>
+  <tr>
+    <% @assignments.each do |submitted_assign| %>
+      <h6>Submitted By:-</h6>
+      <h5><%= submitted_assign.user.first_name %>&nbsp;<%= submitted_assign.user.last_name %></h5>
+      <h6>Description:-</h6>
+      <%= submitted_assign.description %><br>
+      <button><%= link_to "downoad assignment", download_file_path(submitted_assign), method: :get %></button><br /><br />
+    <% end %>
+  </tr>
+</table>

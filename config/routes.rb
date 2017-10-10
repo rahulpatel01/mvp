@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
 
+  get 'comments/index'
+
+  get 'comments/new'
+
+  get 'questions/index'
+
+  get 'questions/new'
+
+  get 'notifications/index'
+
   # get 'subjects/user:references'
 
   # devise_for :users,controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   devise_for :users, :controllers => {:registrations => "registrations", sessions: 'sessions', omniauth_callbacks: 'omniauth_callbacks'}
-  root to: "home#dashboard_page"
+  root to: "home#index"
   resources :subjects do
     resources :ratings, only: :update
   end
@@ -15,6 +25,10 @@ Rails.application.routes.draw do
   resources :calendars
   resources :assignments do
     resources :user_assignments
+  end
+  resources :notifications, only: :index
+  resources :questions do
+    resources :comments
   end
 
   get 'dashboard_page', to:'home#dashboard_page'
@@ -34,8 +48,11 @@ Rails.application.routes.draw do
   get 'subjects/:id/about_page', to:'subjects#about_page', :as => :about_page
   get 'all_educator', to:'home#all_educator'
   get 'assignment/:id/download_file', to:'assignments#download_file',  :as => :download_file
+  get 'user/:id/user_profile', to:'home#user_profile', :as => :user_profile
+  get 'submitted_assignment', to:'assignments#submitted_assignment'
 
   resources :settings
   get 'change_locale', to:'settings#change_locale'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount ActionCable.server => '/cable'
 end

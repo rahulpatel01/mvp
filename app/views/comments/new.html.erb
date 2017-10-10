@@ -1,0 +1,11 @@
+
+  <%= form_for ([@question, @question.comments.build]) do |f| %>
+    <p>
+      <%= f.label :comment, "post your answer" %><br />
+      <%= f.text_area :comment %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>

@@ -19,7 +19,7 @@
                 <% end %>
               </div></li>
               <% if signed_in? %>
-                <li class="list-inline-item"><%= link_to "profile", edit_user_registration_path %>
+                <li class="list-inline-item"><%= link_to "profile", user_profile_path(current_user) %>
                 <li class="list-inline-item"><%= link_to "log out", destroy_user_session_path, method: :delete %>
               <% else %>
                 <li class="list-inline-item"><%= link_to "login" , new_user_session_path %></li>
@@ -28,11 +28,11 @@
               <li class="list-inline-item dropdown ">
               <a href="/subjects" class="dropdown-toggle " data-toggle="dropdown">Courses</b></a>
               <ul id="dropdown-menu" class="dropdown-menu">
-                <li><a href="#">Dropdown 1</a></li>
-                <li><a href="#">Dropdown 2</a></li>
-                <li><a href="#">Dropdown 3</a></li>
-                <li><a href="#">Dropdown 4</a></li>
-                <li><a href="#">Dropdown 5</a></li>
+                <li><a href="/subjects">Dropdown 1</a></li>
+                <li><a href="/subjects">Dropdown 2</a></li>
+                <li><a href="/subjects">Dropdown 3</a></li>
+                <li><a href="/subjects">Dropdown 4</a></li>
+                <li><a href="/subjects">Dropdown 5</a></li>
               </ul></li>&nbsp;&nbsp;&nbsp;
               
               <li class="dropdown list-inline-item">
@@ -52,14 +52,14 @@
               <a href="#" class="dropdown-toggle " data-toggle="dropdown">About</b></a>
               <ul id="dropdown-menu" class="dropdown-menu">
                 <li><a href="/about">About Page</a></li>
-                <li><a href="#">Impact Page</a></li>
-                <li><a href="#">Team Page</a></li>
-                <li><a href="#">Partners</a></li>
+                <li><a href="/about">Impact Page</a></li>
+                <li><a href="/about">Team Page</a></li>
+                <li><a href="/about">Partners</a></li>
                 <li><a href="#">Volunteer</a></li>
                 <% if signed_in? %>
                 <li><a href="/donates/new">Donate</a></li>
                 <% end %>
-                <li><a href="#">Blog</a></li>
+                <li><a href="/about">Blog</a></li>
                 <li><a href="/helps/new">Help</a></li>
                 </ul></li>&nbsp;&nbsp;&nbsp;
               </ul>
@@ -86,7 +86,7 @@
 
 
               
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>  </div> <!-- Collect the nav links, forms, and other content for toggling --> <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <ul class="nav navbar-nav"> <li class="active"><a href="#">Notifications <span class="sr-only">(current)</span></a></li> <li><a href="/users/edit">Profile</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="/surveys/new">create class</a></li> <ul class="nav navbar-nav navbar-right"> <li><a href="/subjects">join class</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="/users/:id/educator_courses">my class</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="/helps/new">Help</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="#">settings</a></li><ul class="nav navbar-nav navbar-right"> <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>  </div> <!-- Collect the nav links, forms, and other content for toggling --> <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <ul class="nav navbar-nav"> <li class="active"><a href="/notifications">Notifications <span class="sr-only">(current)</span></a></li> <li><a href="/users/edit">Profile</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="/surveys/new">create class</a></li> <ul class="nav navbar-nav navbar-right"> <li><a href="/subjects">join class</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="/users/:id/educator_courses">my class</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="/helps/new">Help</a></li><ul class="nav navbar-nav navbar-right"> <li><a href="#">settings</a></li><ul class="nav navbar-nav navbar-right"> <li><%= link_to "log out", destroy_user_session_path, method: :delete %></li>
 
             </ul>
           </ul>

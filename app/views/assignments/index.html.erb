@@ -1,10 +1,10 @@
 <% if can? :create, @assignment %>
   <br></b><div class="myclass">
   <button class="button"><%= link_to "Create Assignment", new_assignment_path %></button></div>
-<% else %>
   <br><div class="myclass">
-    <button><%= link_to "Submitted assignments", assignment_user_assignments_path(@assignments) %></button><br>
+    <button><%= link_to "Submitted assignments", submitted_assignment_path%></button><br>
   </div>
+<% else %>
 <% end %>
 <table>
   <% @assignments.each do |assignment| %>
@@ -14,11 +14,10 @@
       <h6>start date for assignment:</h6><%= assignment.start_time %>
       <h6>due date for assignment:</h6><%= assignment.due_date %>
     </tr><br />
-    <button><%= link_to "downoad assignment", download_file_path(assignment) %></button>&nbsp;&nbsp;&nbsp;  
+    <button><%= link_to "download assignment", download_file_path(assignment), method: :get %></button>&nbsp;&nbsp;&nbsp;  
     <button><%= link_to "show and submit assignment", assignment_path(assignment) %></button><br /><br />
   <% end %>
 </table>
-
 
 
 <style type="text/css">

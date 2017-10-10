@@ -1,0 +1,10 @@
+<%= form_for @question do |f| %>
+  <p>
+    <%= f.label :question, "post a question to educators" %><br />
+    <%= f.text_area :question %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

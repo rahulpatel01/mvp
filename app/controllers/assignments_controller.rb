@@ -9,7 +9,7 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    @assignment = current_user.assignments.build(ass_params)
+    @assignment = current_user.assignments.build(assign_params)
     if @assignment.save
       flash[:notice] = "Assignment Created successfully."
       redirect_to assignments_path
@@ -25,16 +25,19 @@ class AssignmentsController < ApplicationController
 
   def download_file
     @model = Assignment.find(params[:id])
-    send_file(@model.avatar.path,
-          :type => 'application/pdf',
-          :disposition => 'attachment',
-          :url_based_filename => true)
+    send_file(
+        @model.avatar.path,
+        type: "application/pdf"
+      )
   end
 
+  def submitted_assignment
+    @assignments = UserAssignment.where(educator_id: current_user.id)
+  end
 
   private
 
-  def ass_params
+  def assign_params
     params.require(:assignment).permit(:name, :due_date, :start_time, :avatar)
   end
 end

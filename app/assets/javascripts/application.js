@@ -16,4 +16,5 @@
 //= require jquery_ujs
 //= require jquery.raty.min
 //= require turbolinks
+//= require jquery.transit.min
 //= require_tree .

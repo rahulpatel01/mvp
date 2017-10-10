@@ -1,25 +1,36 @@
 <%= form_for @help do |f| %>
+  <div>
+    <%= image_tag ('/maxresdefault.jpg'), size: "1210x300" %>
+  </div><br><br />
 
-<div>
-  <%= image_tag ('/maxresdefault.jpg'), size: "1210x300" %>
-</div><br><br />
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <div class="btn-group btn-group-lg" role="group">
 
-<div>
+        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#student" aria-expanded="false" aria-controls="footwear">Student
+        </button>
+        <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#educator" aria-expanded="false" aria-controls="footwear">Educator
+        </button>
+      </div>
+    </tr>
+  </thead>
+  </table>
+  <div id="student">
   <h2>Frequently Asked Questions</h2>
   <%= link_to "unable to find my course", find_course_path %><br>
   <%= link_to "send a message to the instructor", message_to_instructor_path %><br>
   <%= link_to "video playback issue", video_playback_path %><br>
   <%= link_to "failed course purchase", failed_purchase_path %><br>
-</div><br />
+  </div><br />
 
-  <table class="table table-bordered">
-  <thead>
-    <tr>
-      <td class="table-active">student</td>
-      <td class="table-success">educator</td>
-    </tr>
-  </thead>
-</table>
+  <div id="educator">
+  <h2>Frequently Asked Questions</h2>
+  <%= link_to "why won't my video upload", find_course_path %><br>
+  <%= link_to "Become a premium instructor and charge for course", message_to_instructor_path %><br>
+  <%= link_to "video playback issues", video_playback_path %><br>
+  <%= link_to "instructor revenue share", failed_purchase_path %><br>
+  </div><br />
 
   <p>
     <%= f.label :user_type, "I am a..." %><br> 
@@ -50,6 +61,6 @@
     <%= f.file_field :avatar %>
   </p>
   <p>
-  <%= f.submit %>
+    <%= f.submit %>
   </p>
 <% end %>

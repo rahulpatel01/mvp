@@ -6,7 +6,8 @@ class CreateAssignments < ActiveRecord::Migration[5.0]
 
       t.timestamps
     end
-    add_column :assignments, :user, :integer
-    add_index :assignments, :user
+    add_column :assignments, :start_time, :datetime
+    add_column :assignments, :avatar, :string
+    add_reference :assignments, :user, index: true
   end
 end

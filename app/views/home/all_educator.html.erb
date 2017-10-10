@@ -1,6 +1,18 @@
+<div class="post">
+  <button><%= link_to "Post Question" , new_question_path%></button>
+  <button><%= link_to "Previous Posted Questions" , questions_path %></button>
+  <button><%= link_to "submit assignment/documents" %></button><br /><br />
+</div>
 <p>
   <% @educators.each do |educator| %>
-    <%= educator.first_name %>&nbsp;<%= educator.last_name %><br />
-    <%= educator.email %>
+    <%= link_to "#{educator.first_name}" "#{educator.last_name}", user_profile_path(educator.id) %><br />
+    <%= educator.email %><br /><br /><br />
   <% end %>
 </p>
+
+<style type="text/css">
+  .post{
+    text-align: center;
+    margin: 10px;
+  }
+</style>

@@ -1,0 +1,7 @@
+<table>
+  <tr>
+    <% @questions.each do |que| %>
+      <%= link_to que.question, question_comments_path(que) %><br />
+    <% end %>
+  </tr><br />
+</table>

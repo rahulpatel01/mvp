@@ -1,0 +1,23 @@
+<table>
+  <tr>
+    <% @comments.each do |com| %>
+      <% if com.user.first_name.present? %>
+        <h5><%= com.user.first_name %>&nbsp;<%= com.user.last_name %></h5>
+        <%= com.answer %><br /><br />
+      <% else %> 
+        <%= com.answer %><br /><br />
+      <% end %>  
+    <% end %>
+  </tr>
+</table>
+
+<%= form_for ([@question, @question.comments.build]) do |f| %>
+  <p>
+    <%= f.label :answer, "post your answer" %><br />
+    <%= f.text_area :answer %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
